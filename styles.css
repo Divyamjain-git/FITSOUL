@@ -1,0 +1,673 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1a1a1a, #333); /* Gradient background */
+    color: #e0e0e0;
+    line-height: 1.6;
+    background-image: url('men-background.jpg'); /* Adjust the path to your image */
+    background-size:cover; /* Ensures the background covers the whole page */
+    background-position: center; /* Centers the background image */
+    background-attachment: fixed;
+}
+
+.container {
+    
+    
+    margin: 20px ;
+    
+    background:linear-gradient(to right ,rgb(57, 57, 57),rgb(57, 51, 51),rgb(72, 72, 72));/* Semi-transparent background */
+    border-radius :15px;
+    box-shadow :0 0 15px rgba(0, 0, 0, 0.7);
+    animation :fadeIn 0.5s; /* Animation on load */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+.container:hover {
+    transform: scale(1.02); /* Slight zoom on hover */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6); /* Enhance shadow on hover */
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    background:linear-gradient(to top,rgb(55, 115, 55),rgb(32, 113, 32),rgb(4, 141, 4)); /* Green background */
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s; /* Added transform for hover */
+}
+
+nav a:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.05); /* Slight scale on hover */
+}
+
+input {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 2px solid #4caf50; /* Green border */
+    border-radius: 5px;
+    background-color: #2e2e2e; /* Dark input background */
+    color: #e0e0e0; /* Light text */
+    transition: border-color 0.3s; /* Transition for border */
+}
+
+input::placeholder {
+    color: #b0b0b0; /* Placeholder color */
+}
+
+input:focus {
+    border-color: #76ff03; /* Lighter green on focus */
+}
+
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #4caf50; /* Green background */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s; /* Added transform for hover */
+    width: 100%; /* Full width for buttons */
+}
+
+button:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.05); /* Slight scale on hover */
+}
+
+h1, h2, h3{
+    color: #4caf50; /* Green for headers */
+    text-align: center; /* Centered headers */
+}
+
+.bmi-image {
+    max-width: 100%;
+    
+    margin: 20px 0;
+    border: 2px solid #020202; /* Green border around image */
+    border-radius: 10px; /* Rounded corners for image */
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px; 
+    justify-items: left;
+    ;/* Indent for list */
+}
+
+.hidden {
+    display: none; /* Hides elements when needed */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column; /* Stack nav items on small screens */
+    }
+
+    nav a {
+        margin: 5px 0; /* Space between nav items */
+        text-align: center; /* Center text for small screens */
+    }
+
+    input, button {
+        width: calc(100% - 20px); /* Adjust for padding */
+    }
+
+    .container {
+        margin: 10px; /* Reduce margin on small screens */
+        padding: 15px; /* Reduce padding on small screens */
+    }
+
+    h1, h2 {
+        font-size: 1.5em; /* Smaller headers on mobile */
+    }
+}
+
+@media (max-width: 400px) {
+    h1, h2 {
+        font-size: 1.2em; /* Further reduce header size on very small screens */
+    }
+
+    button {
+        padding: 8px; /* Smaller buttons on small screens */
+    }
+}
+#height-input {
+    display: flex;
+    flex-direction: column;
+}
+
+#height-ft, #height-in {
+    display: none; /* Initially hide feet and inches */
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Main Body */
+body {
+    background-color: #2c3e50;
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+/* Container for Slogan and Logo */
+.slogan-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.logo img {
+    max-width: 200px;
+    margin-bottom: 20px;
+}
+
+
+/* Slogan Styling */
+.slogan h1 {
+    font-size: 3rem;
+    color:rgb(43, 226, 119); 
+    
+    text-transform: uppercase;
+    font-family:cursive;
+    letter-spacing: 5px;
+    animation: sloganAnimation 8s ease-out;
+}
+
+/* Animation for Slogan */
+@keyframes sloganAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #060606;
+}
+
+/* Landing Content Styling */
+.landing-content {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:x-large;
+    padding: 20px;
+    background:linear-gradient(to top,rgb(170, 169, 169),rgb(101, 99, 99),rgb(72, 72, 72));
+    border-radius: 10px;
+    margin-bottom: 20px;
+    max-width: 600px;
+    box-shadow: 6px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Call-to-action Button */
+.cta-button {
+    background-color: #27ae60;
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #070707;
+}
+
+/* Slogan Animation (Pop-up) */
+.slogan-animation {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 8rem;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #27ae3d;
+    font-weight: bold;
+    animation: sloganAppear 2s ease-out forwards;
+}
+
+@keyframes sloganAppear {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Hide slogan animation after 3 seconds */
+.slogan-animation h1 {
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Main Body */
+body {
+    background-color: #2c3e50;
+    
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container for Slogan and Logo */
+.slogan-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.logo img {
+    max-width: 200px;
+    margin-bottom: 20px;
+}
+
+/* Slogan Styling */
+.slogan h1 {
+    font-size: 5rem;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #0e6726;
+    
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    animation: sloganAnimation 3s ease-out;
+}
+
+/* Animation for Slogan */
+@keyframes sloganAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Navigation Bar Styling (now positioned below slogan) */
+nav {
+    background-color: #2ecc71;
+    width: 100%;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;  /* Added space between slogan and navbar */
+    position: relative;  /* Adjust to normal flow */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #080808;
+}
+
+/* Landing Content Styling */
+.landing-content {
+    text-align: center;
+    padding: 20px;
+    background-color: #2e2e2e;
+    border-radius: 10px;
+    margin-top: 30px;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(170, 35, 35, 0.1);
+}
+
+/* Call-to-action Button */
+.cta-button {
+    background-color: #27ae60;
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #030303;
+}
+
+/* Slogan Animation (Pop-up) */
+.slogan-animation {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    color: #27ae60;
+    font-weight: bold;
+    animation: sloganAppear 3s ease-out forwards;
+}
+
+@keyframes sloganAppear {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Hide slogan animation after 3 seconds */
+.slogan-animation h1 {
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+}
+
+.list{
+    padding: 0;
+}
+.list li{
+    width: auto;
+    text-align: center;
+    list-style-type:none;
+    padding: 7px;
+    position: relative;
+    color:whitesmoke;
+}
+.list li::before{
+    content: '';
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 100%;
+    width: 0;
+    height: 2px;
+    background:#2ecc71 ;
+    transition-duration: .5s;
+   
+}
+.list li:hover::before{
+    width: 70px;
+}
+.social-icons{
+    text-align: center;
+    padding: 0;
+}
+.social-icons li{
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+}
+.social-icons i{
+    color: white;
+    font-size: 25px;
+}
+a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+a:hover{
+    color: #2ecc71;
+}
+.social-icons i:hover{
+    color: #2ecc71;
+}
+.bottom-bar{
+    background: #2ecc71;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 50px;
+}
+.bottom-bar p{
+    color: #343434;
+    margin: 0;
+    font-size: 16px;
+   padding: 7px;
+}
+.logo-container {
+    position: absolute; /* Fix the logo to the top-left corner */
+    top: 20px; /* Distance from the top */
+    left: 20px; /* Distance from the left */
+    z-index: 10; /* Ensures the logo is on top of other content */
+}
+
+.logo {
+    width: 140px; /* Adjust based on your logo size */
+    height: auto;
+}
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scrolling if needed */
+    background-color: rgba(0,0,0,0.4); /* Fallback for background color */
+}
+
+.modal-content {
+    background-image: url(OIP.jpg);
+    margin: 15% auto ;
+ border-color: #fcfbfb;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 1px solid white;
+    width: 5000px;
+    max-width: 700px;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#suggestionsContent img {
+    width: 200px;
+    height: 200px;
+    margin: 10px;;
+    border: #27ae3d;
+    border-width: 0cm
+}
+
+.left{
+    /* border: 2px solid red; */
+    display: inline-block;
+    position: absolute;
+    left: 34px;
+    top: 20px; 
+    
+}
+.left img{
+    display: block;
+    width: 80px;
+    margin: auto;
+
+}
+.left div{
+    text-align: center;
+    font-size: 25px;
+}
+.mid{
+     /* border: 2px solid green; */
+     display: block;
+     width: 36%;
+     margin: 20px auto;
+
+}
+.right{
+     /* border: 2px solid yellow; */
+     display: inline-block;
+     
+    position: absolute;
+    right: 34px;
+    top: 20px;
+}
+.btn{
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 9px;
+    font-size: 17px;
+    cursor: pointer;
+}
+.btn:hover{
+    background-color:slategray;
+
+}
+.navbar{
+    display: inline-block;
+   
+}
+.navbar li {
+    
+    display: inline-block;
+}
+.navbar li a{
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    font-size: 22px;
+    margin: auto;
+    
+}
+.navbar li a:hover {
+    font-weight: bolder;
+    color: slategray;
+}
+.container{
+    border: 2px solid white;
+    margin: 50px;
+    padding: 30px;
+    width: 30%;
+    border-radius: 10px;
+    background-image:url("OIP.jpg");
+}
+.container1{
+    border: 2px solid white;
+    margin: 50px;
+    padding: 30px;
+    width: 60%;
+    border-radius: 10px;
+    background-image:url("OIP.jpg");
+  
+}
+.formgrp input{
+    width: 100%;
+    text-align: center;
+    display:block;
+    border: 2px solid black;
+    padding: 5px;
+    margin: 10px auto;
+    font-size: 20px;
+    border-radius: 10px;
+    
+}
+.container h1{
+      text-align: center;
+}
+.container button{
+       display:block;
+       width: 105%;
+       margin: 15px auto;
+       background-color: black;
+       font-size: 23px;
+
+}

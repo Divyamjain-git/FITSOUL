@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    background:linear-gradient(to top,rgb(152, 151, 151),rgb(76, 75, 75),rgb(45, 44, 44));; /* Relative path */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    background-image: url(https://media.istockphoto.com/id/1129029770/photo/black-brick-wall-texture-of-dark-brickwork-close-up.jpg?s=612x612&w=0&k=20&c=eB8xB0G7hYodNNrGqbIpLh3Ecb2c5sc871Bz1ovBp3I=);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #45a049;;
+    font-size: 36px;
+}
+
+header p {
+    font-size: 16px;
+    color: #45a049;;
+}
+
+.myths {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.myth-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    transition: transform 0.3s ease;
+}
+
+.myth-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.myth-card h3 {
+    color: #45a049;;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.myth-btn {
+    padding: 8px 15px;
+    background-color: #45a049;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.myth-btn:hover {
+    background-color:linear-gradient(to top,rgb(55, 115, 55),rgb(6, 201, 6),rgb(4, 141, 4)); ;
+}
+
+.fact {
+    display: none;
+    margin-top: 15px;
+    font-size: 16px;
+    color:#45a049 ;
+    line-height: 1.5;
+    background-color: black;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+    color:#45a049; ;
+}
+
+footer p {
+    font-style: italic;
+}

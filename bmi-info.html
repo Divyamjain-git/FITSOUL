@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Information</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="slogan">
+        <h1>MEASURE UP, LEVEL UP</h1>
+    </div>
+    <div class="logo-container">
+        <img src="logo2.png" alt="BMI Logo" class="logo">
+    </div>
+    <div class="mid">
+               
+        <ul class="navbar">
+            <li><a href="bmi-info.html">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="bmi-calculator-men.html">BMI Calculator</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    
+    
+</div>
+    <nav>
+        <a href="signin.html">Sign In</a>
+        
+        <a href="bmi-calculator-men.html">BMI for Men</a>
+        <a href="bmi-calculator-women.html">BMI for Women</a>
+        <a href="bmi-calculator-teen.html">BMI for Teenagers</a>
+        <a href="know-more.html">Know More</a>
+        <a href="hiii/myth.html">Myth Buster</a>
+    </nav>
+    <div class="container1">
+        <h2>BMI Information</h2>
+        <img src="bmiii.jpg" alt="BMI Chart" width="300px" l class="bmi-image">
+        <p><strong>BMI:</strong> Body Mass Index is a measurement that compares your weight to your height...</p>
+        <p><strong>Formula:</strong> BMI = weight (kg) / (height (m) * height (m)).</p>
+        <p><strong>Importance:</strong> <ul>
+            <li>It provides a quick screening tool for weight categories that may lead to health problems.</li>
+            <li>A high BMI can indicate higher body fat...</li>
+            <li>A low BMI can also signal potential health risks...</li>
+            <li>While BMI does not directly measure body fat...</li>
+        </ul></p>
+        <p><strong>Categories:</strong> <ul>
+            <li><strong>Underweight:</strong> BMI < 18.5</li>
+            <li><strong>Normal weight:</strong> BMI 18.5 – 24.9</li>
+            <li><strong>Overweight:</strong> BMI 25 – 29.9</li>
+            <li><strong>Obesity:</strong> BMI ≥ 30</li>
+        </ul></p>
+        <p>Understanding your BMI can help you make informed decisions about your health...</p>
+        <br>
+        <a href="bmi-calculator-men.html" class="cta-button">Continue to Calculate BMI for Men</a>
+    </div>
+     <!-- Modal for Health Tips -->
+     <div id="healthModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 style="color: rgb(43, 204, 62);">Health Tips of the Day</h2>
+            <p id="healthTip"></p>
+        </div>
+    </div>
+<!-- Bottom Bar -->
+<div class="bottom-bar">
+    <p>&copy; 2024 FitSoul. All rights reserved.</p>
+</div>
+</body>
+<script>
+    // Health tips array
+    const healthTips = [
+        "Drink water regularly and aim for at least 8 glasses a day.",
+        "Take a brisk 30-minute walk daily to boost cardiovascular health.",
+        "Incorporate fruits and vegetables into every meal.",
+        "Practice mindfulness or meditation for 10 minutes daily.",
+        "Limit sugar and processed foods to maintain stable energy levels.",
+        "Ensure 7-8 hours of sleep every night for optimal recovery.",
+        "Take short breaks during work to stretch and reduce strain.",
+        "Maintain good posture while sitting and standing.",
+        "Opt for whole grains over refined ones to improve digestion.",
+        "Stay consistent with your workout routine to achieve your goals."
+    ];
+
+    // Modal functionality
+    const modal = document.getElementById("healthModal");
+    const closeBtn = document.getElementsByClassName("close")[0];
+    const healthTipElement = document.getElementById("healthTip");
+
+    // Display random health tip
+    function showHealthTip() {
+        const randomIndex = Math.floor(Math.random() * healthTips.length);
+        healthTipElement.textContent = healthTips[randomIndex];
+        modal.style.display = "block";
+    }
+
+    // Close modal on close button click
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // Close modal if clicked outside of modal content
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    // Show health tip modal after 3 seconds
+    setTimeout(showHealthTip, 3000);
+</script>
+
+</html>

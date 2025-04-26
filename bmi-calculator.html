@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitSoul - Your Health Partner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Slogan and Logo -->
+    <div class="logo-container">
+        <img src="logo2.jpg" alt="FitSoul Logo" class="logo">
+    </div>
+    <div class="slogan">
+        <h1 class="slogan">MEASURE UP, LEVEL UP</h1>
+    </div>
+<br>
+<br>
+<br>
+<br>
+    <!-- Landing Content -->
+    <div class="landing-content">
+        <p>Welcome to the BMI Calculator! Track your health, set goals, and take your wellness journey to the next level.</p>
+        <p>Your transformation starts here!</p>
+        <a href="signin.html" class="cta-button">Start Now</a>
+    </div>
+
+    <!-- Social Media Links -->
+    <div class="social-container">
+        <ul class="social-icons">
+            <li><a href="https://facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://instagram.com" target="_blank"><i class="fa fa-instagram"></i></a></li>
+        </ul>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="bottom-bar">
+        <p>&copy; 2024 FitSoul. All rights reserved.</p>
+    </div>
+
+    <!-- Modal for Health Tips -->
+    <div id="healthModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 style="color: black;">Health Tips of the Day</h2>
+            <p id="healthTip"></p>
+        </div>
+    </div>
+
+    <!-- FontAwesome Icons (for social media) -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+        // Health tips array
+        const healthTips = [
+            "Drink water regularly and aim for at least 8 glasses a day.",
+            "Take a brisk 30-minute walk daily to boost cardiovascular health.",
+            "Incorporate fruits and vegetables into every meal.",
+            "Practice mindfulness or meditation for 10 minutes daily.",
+            "Limit sugar and processed foods to maintain stable energy levels.",
+            "Ensure 7-8 hours of sleep every night for optimal recovery.",
+            "Take short breaks during work to stretch and reduce strain.",
+            "Maintain good posture while sitting and standing.",
+            "Opt for whole grains over refined ones to improve digestion.",
+            "Stay consistent with your workout routine to achieve your goals."
+        ];
+
+        // Modal functionality
+        const modal = document.getElementById("healthModal");
+        const closeBtn = document.getElementsByClassName("close")[0];
+        const healthTipElement = document.getElementById("healthTip");
+
+        // Display random health tip
+        function showHealthTip() {
+            const randomIndex = Math.floor(Math.random() * healthTips.length);
+            healthTipElement.textContent = healthTips[randomIndex];
+            modal.style.display = "block";
+        }
+
+        // Close modal on close button click
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Close modal if clicked outside of modal content
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Show health tip modal after 3 seconds
+        setTimeout(showHealthTip, 3000);
+    </script>
+
+</body>
+</html>

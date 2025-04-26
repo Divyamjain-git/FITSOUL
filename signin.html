@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="logo-container">
+        <img src="logo2.png" alt="BMI Logo" class="logo">
+    </div>
+    <div class="slogan">
+        <h1>MEASURE UP, LEVEL UP</h1>
+    </div>
+    <div class="mid">
+               
+        <ul class="navbar">
+            <li><a href="bmi-info.html">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="bmi-calculator-men.html">BMI Calculator</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    
+    
+</div>
+<!-- div right is for buttons -->
+
+</header>
+
+<fieldset class="container">
+    <legend>
+        <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Sign In</h1>
+    </legend>
+    <form action="bmi-info.html">
+        <div class="formgrp">
+            <!-- Restrict name to alphabets only -->
+            <input 
+                type="text" 
+                placeholder="Enter Your Name" 
+                pattern="[A-Za-z\s]+" 
+                title="Name should contain only letters and spaces" 
+                maxlength="50" 
+                required>
+            
+            <!-- Email validation -->
+            <input 
+                type="email" 
+                placeholder="Enter Your E-Mail" 
+                title="Please enter a valid email address" 
+                required>
+            
+            <!-- Restrict contact number to digits only -->
+            <input 
+                type="tel" 
+                placeholder="Enter Your Contact Number" 
+                pattern="\d{10}" 
+                title="Contact number should be 10 digits" 
+                maxlength="10" 
+                required>
+            
+           
+            
+            <!-- Locality input with character limit -->
+            <input 
+                type="text" 
+                placeholder="Enter Your Locality" 
+                maxlength="100" 
+                required>
+            
+            <!-- Submit button -->
+            <button class="btn" type="submit">Submit</button>
+        </div>
+        <p>Already have an account? <a href="bmi-info.html">Go to BMI Info</a></p>
+    </form>
+</fieldset>
+
+        
+    </div>
+</body>
+</html>
+

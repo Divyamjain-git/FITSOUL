@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator for Men</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Modal styling */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0, 0, 0, 0.4); 
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 8px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .bmi-image {
+            width: 200px;
+            height: 200px;
+         ;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <img src="logo2.png" alt="BMI Logo" class="logo">
+    </div>
+    <div class="slogan">
+        <h1>MEASURE UP, LEVEL UP</h1>
+    </div>
+    <div class="mid">
+</div>
+    <nav>
+        <a href="signin.html">Sign In</a>
+        <a href="bmi-info.html">BMI Info</a>
+        <a href="bmi-calculator-teen.html">BMI for Teen</a>
+        <a href="bmi-calculator-women.html">BMI for Women</a>
+        <a href="know-more.html">Know More</a>
+        <a href="hiii/myth.html">Myth Buster</a>
+    </nav>
+    <div class="container">
+        <h2>BMI Calculator for Men</h2>
+        <input type="number" id="weight" placeholder="Weight (kg)" required>
+
+        <label for="height-unit">Select height unit:</label>
+        <select id="height-unit">
+            <option value="cm">Centimeters (cm)</option>
+            <option value="ft">Feet and Inches (ft/in)</option>
+        </select>
+
+        <div id="height-input">
+            <input type="number" id="height-cm" placeholder="Height (cm)" required>
+            <input type="number" id="height-ft" placeholder="Height (ft)" min="0" required>
+            <input type="number" id="height-in" placeholder="Height (in)" min="0" max="11">
+        </div>
+
+        <button id="calculateBmiButton">Calculate BMI</button>
+        
+        <div id="dietExerciseSuggestions" class="hidden"></div>
+        <button id="suggestionButton">Show Suggestions</button>
+    </div>
+
+    <!-- Modal for showing BMI result -->
+    <div id="bmiResultModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <h2 style="color: rgb(251, 247, 247);">BMI Result</h2>
+            <p id="bmiResultText"></p>
+        </div>
+    </div>
+
+    <!-- Modal for suggestions -->
+    <div id="suggestionsModal" class="modal">
+        <div class="modal-content">
+            <span id="closeSuggestionsModal" class="close">&times;</span>
+            <h2 style="color: rgb(248, 245, 245);">Healthy Eating and Exercise Tips</h2>
+            <div id="suggestionsContent">
+                <!-- Dynamic content goes here -->
+            </div>
+        </div>
+    </div>
+    <!-- Bottom Bar -->
+    <div class="bottom-bar">
+        <p>&copy; 2024 FitSoul. All rights reserved.</p>
+    </div>
+    <script src="calculator.js"></script>
+</body></html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/creativetimofficial/tailwind-starter-kit/compiled-tailwind.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css'>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+ 
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+        header, section, footer {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        header {
+            background: url("https://t4.ftcdn.net/jpg/02/57/65/13/240_F_257651358_mgb0VrHgGqNSKNjiJSltEsaHhY35RtT4.jpg") no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin: 10px 0 20px;
+        }
+        header button {
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #000;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .slogan-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.logo-container {
+    position: absolute; /* Fix the logo to the top-left corner */
+    top: 20px; /* Distance from the top */
+    left: 20px; /* Distance from the left */
+    z-index: 10; /* Ensures the logo is on top of other content */
+}
+
+.logo {
+    width: 140px; /* Adjust based on your logo size */
+    height: auto;
+}
+
+
+/* Slogan Styling */
+.slogan h1 {
+    font-size: 5rem;
+    color:#28b128; 
+    
+    text-transform: uppercase;
+    font-family:'Times New Roman', Times, serif;
+    letter-spacing: 5px;
+    animation: sloganAnimation 8s ease-out;
+}
+
+/* Animation for Slogan */
+@keyframes sloganAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.navbar {
+            position:absolute;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+             /* Semi-transparent background */
+            padding: 10px 20px;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+
+
+.bmisec{
+    background-image: url("men-background.jpg");
+}
+        .navbar a:hover {
+            background-color: #006400; /* Dark Green */
+            transform: scale(1.1);
+        }
+
+        section {
+            background-color: #111;
+        }
+        section h2 {
+            font-size: 2.5rem;
+        }
+        .bmi-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .bmi-form label {
+            font-weight: bold;
+            margin: 10px 0 5px;
+        }
+        .bmi-form input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .bmi-form button {
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #000;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .image-container {
+            max-width: 600px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .image-container img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Scroll Animation Trigger */
+        .image-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        footer {
+            background-color: #222;
+        }
+        footer p, footer a {
+            color: #fff;
+            font-size: 0.9rem;
+        }
+        footer .social-icons a {
+            margin: 0 10px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+ 
+    <header>
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+
+        <div class="logo-container">
+            <img src="logo2.png" alt="BMI Logo" class="logo">
+        </div>
+        <div class="slogan">
+            <h1>MEASURE UP, LEVEL UP</h1>
+        </div>
+       <br><br>
+        <div class="landing-content">
+            <p>Welcome to the BMI Calculator! Track your health, set goals, and take your wellness journey to the next level.</p>
+            <p>Your transformation starts here!</p>
+            
+        </div><a href="signin.html"><button>Get Started</button></a>
+        <polygon
+        class="text-gray-300 fill-current"
+        points="2560 0 2560 100 0 100"
+      ></polygon>
+    </header>
+    <polygon
+   >
+    <div class="bmisec">
+    </div>
+    <section id="about" class="relative py-20 bg-black text-white">
+        <div class="container mx-auto px-4">
+          <div class="items-center flex flex-wrap">
+            <!-- Image with Animation -->
+            <div class="w-full md:w-4/12 ml-auto mr-auto px-4" data-aos="fade-right">
+              <img
+                alt="Fitness Image"
+                class="max-w-full rounded-lg shadow-lg"
+                src="jog.webp"
+              />
+            </div>
+            <!-- Content with Animation -->
+            <div class="w-full md:w-5/12 ml-auto mr-auto px-4" data-aos="fade-left">
+              <div class="md:pr-12">
+                <small>
+                  
+                </small>
+                <h3 class="text-3xl uppercase font-bold">
+                  We Believe in <br />
+                  <span class="text-green-500">“MEASURE UP, LEVEL UP”.</span> <br />
+                  Yours and Ours.
+                </h3>
+                <p class="mt-4 text-lg leading-relaxed">
+                  If you are ready to transform your body, health, and athletic
+                  performance goals into a reality, join our awesome community of fitness fans, athletes, and professional fitness coaches to begin your journey to a more fit you today.
+                </p>
+                <ul class="list-none mt-6">
+                  <li class="py-2">
+                    <div class="flex items-center">
+                      <div>
+                        <span
+                          class="font-semibold inline-block py-3 mr-3 text-yellow-500"
+                          > </i
+                        ></span>
+                      </div>
+                     
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </section>
+      <section class="pb-20 relative block bg-black text-white">
+        <div
+          class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
+          style="height: 80px; transform: translateZ(0px)"
+        >
+          <svg
+            class="absolute bottom-0 overflow-hidden"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+            version="1.1"
+            viewBox="0 0 2560 100"
+            x="0"
+            y="0"
+          >
+            <polygon points="2560 0 2560 100 0 100"></polygon>
+          </svg>
+        </div>
+        <div class="container mx-auto px-4 lg:pt-24 lg:pb-64 pb-20 pt-20">
+          <div class="flex flex-wrap text-center justify-center">
+            <div class="w-full lg:w-6/12 px-4">
+              <h2 class="text-4xl font-semibold text-white uppercase">
+                Contact Us
+              </h2>
+              <p class="text-lg leading-relaxed mt-4 mb-4 text-gray-500">
+                Contact us using the form below.Ask any questions. We're here to
+                make your life just a little easier.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Contact form -->
+      <section id="contact_form" class="relative block py-24 lg:pt-0 bg-black">
+        <div class="container mx-auto px-4">
+          <div class="flex flex-wrap justify-center lg:-mt-64 -mt-48">
+            <div class="w-full lg:w-6/12 px-4">
+              <div
+                class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300"
+                data-aos="fade-up-right"
+              >
+                <div class="flex-auto p-5 lg:p-10 bg-green-500 text-black">
+                  <h4 class="text-2xl font-semibold text-black">
+                    Want to work with us?
+                  </h4>
+                  <p class="leading-relaxed mt-1 mb-4">
+                    Complete this form and we will get back to you in 24 hours.
+                  </p>
+                  <div class="relative w-full mb-3 mt-8">
+                    <label
+                      class="block uppercase text-xs font-bold mb-2"
+                      for="full-name"
+                      >Full Name</label
+                    ><input
+                      type="text"
+                      class="px-3 py-3 placeholder-gray-400 bg-gray-700 rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
+                      placeholder="Full Name"
+                      style="transition: all 0.15s ease 0s"
+                    />
+                  </div>
+                  <div class="relative w-full mb-3">
+                    <label
+                      class="block uppercase text-xs font-bold mb-2"
+                      for="email"
+                      >Email</label
+                    ><input
+                      type="email"
+                      class="px-3 py-3 placeholder-gray-400 bg-gray-700 rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
+                      placeholder="Email"
+                      style="transition: all 0.15s ease 0s"
+                    />
+                  </div>
+                  <div class="relative w-full mb-3">
+                    <label
+                      class="block uppercase text text-xs font-bold mb-2"
+                      for="message"
+                      >Message</label
+                    ><textarea
+                      rows="4"
+                      cols="80"
+                      class="px-3 py-3 placeholder-gray-400 bg-gray-700 rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
+                      placeholder="Type a message..."
+                    ></textarea>
+                  </div>
+                  <div class="text-center mt-6">
+                    <button
+                      class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                      type="button"
+                      style="transition: all 0.15s ease 0s"
+                    >
+                      Send Message
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+      <!-- AOS Library -->
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <script>
+        // Initialize AOS
+        AOS.init({
+          duration: 1200, // Animation duration in milliseconds
+          once: true, // Animation runs only once
+        });
+      </script>
+    
+    <footer class="relative bg-gray-300 pt-8 pb-6">
+        <div
+          class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
+          style="height: 80px; transform: translateZ(0px)"
+        >
+          <svg
+            class="absolute bottom-0 overflow-hidden"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+            version="1.1"
+            viewBox="0 0 2560 100"
+            x="0"
+            y="0"
+          >
+            <polygon
+              class="text-gray-300 fill-current"
+              points="2560 0 2560 100 0 100"
+            ></polygon>
+          </svg>
+        </div>
+        <div class="container mx-auto px-4" id="contact">
+          <div class="flex flex-wrap">
+            <div class="w-full lg:w-6/12 px-4">
+              <h4 class="text-3xl font-semibold">Follow us on social media</h4>
+              <h5 class="text-lg mt-0 mb-2 text-gray-700">
+                Find us on any of these platforms, we respond 1-2 business days.
+              </h5>
+              <div class="mt-6">
+                <button
+                  class="bg-green-500 text-black-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
+                  type="button"
+                >
+                  <i class="flex fab fa-twitter"></i></button
+                ><button
+                  class="bg-green-500 text-black-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
+                  type="button"
+                >
+                  <i
+                    class="flex fab fa-facebook-square bg-yellow-500"
+                  ></i></button
+                ><button
+                  class="bg-green-500 text-black-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
+                  type="button"
+                >
+                  <i class="flex fab fa-linkedin bg-yellow-700"></i></button
+                ><button
+                  class="bg-green-500 text-black-900 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
+                  type="button"
+                >
+                  <i class="flex fab fa-instagram"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <hr class="my-6 border-gray-400" />
+          <div
+            class="flex flex-wrap items-center md:justify-between justify-center"
+          >
+            <div class="w-full md:w-4/12 px-4 mx-auto text-center">
+              <div class="text-sm text-gray-600 font-semibold py-1">
+                Copyright © 2024 FitSoul
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    <script>
+        function calculateBMI() {
+            const height = document.getElementById('height').value / 100; // Convert cm to meters
+            const weight = document.getElementById('weight').value;
+            if (height && weight) {
+                const bmi = (weight / (height * height)).toFixed(2);
+                const resultText = `Your BMI is ${bmi}. ${getBMICategory(bmi)}`;
+                document.getElementById('bmiResult').innerText = resultText;
+            } else {
+                alert('Please fill out both fields.');
+            }
+        }
+
+        function getBMICategory(bmi) {
+            if (bmi < 18.5) return 'You are underweight.';
+            if (bmi >= 18.5 && bmi < 24.9) return 'You have a normal weight.';
+            if (bmi >= 25 && bmi < 29.9) return 'You are overweight.';
+            return 'You are obese.';
+        }
+    </script>
+</body>
+</html>
