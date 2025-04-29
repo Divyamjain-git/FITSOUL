@@ -13,7 +13,7 @@ function toggleFact(factNumber) {
     }
 }
 
-// Initialize all facts to be hidden when the page loads
+// Initialize all facts to be hidden when the page load
 document.addEventListener('DOMContentLoaded', function() {
     const facts = document.querySelectorAll('.fact');
     facts.forEach(fact => {
