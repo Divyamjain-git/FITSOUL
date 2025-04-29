@@ -37,7 +37,7 @@
             showDietExerciseSuggestions(category);
         });
 
-        // BMI category functions
+        // BMI category function
         function getBMICategory(bmi) {
             if (bmi < 18.5) {
                 return "Underweight";
