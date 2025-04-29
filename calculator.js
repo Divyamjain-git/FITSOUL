@@ -33,11 +33,11 @@
             document.getElementById('bmiResultText').textContent = `Your BMI is ${bmi.toFixed(2)} (${category})`;
             document.getElementById('bmiResultModal').style.display = 'block';
 
-            // Show diet and exercise suggestions
+            // Show diet and exercise suggestion
             showDietExerciseSuggestions(category);
         });
 
-        // BMI category function
+        // BMI category functions
         function getBMICategory(bmi) {
             if (bmi < 18.5) {
                 return "Underweight";
