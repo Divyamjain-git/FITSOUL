@@ -12,7 +12,7 @@ function toggleFact(factNumber) {
         button.innerText = 'Show Fact';
     }
 }
-
+// changingjs3
 // Initialize all facts to be hidden when the page load
 document.addEventListener('DOMContentLoaded', function() {
     const facts = document.querySelectorAll('.fact');
