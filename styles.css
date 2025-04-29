@@ -27,6 +27,7 @@ body {
     animation :fadeIn 0.5s; /* Animation on load */
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
+/* containerstyle */
 .container:hover {
     transform: scale(1.02); /* Slight zoom on hover */
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6); /* Enhance shadow on hover */
